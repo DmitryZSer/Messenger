@@ -41,10 +41,10 @@ def send_messages(connection_socket, username, color):
             
 # Функция для установки соединения с другим пользователем
 def connect_to_peer():
-    #peer_ip = input("Введите IP другого пользователя: ")
-    peer_ip = "192.168.254.128"
-    #peer_port = int(input("Введите порт другого пользователя: "))
-    peer_port = 333
+    peer_ip = input("Введите IP другого пользователя: ")
+    #peer_ip = "192.168.254.128"
+    peer_port = int(input("Введите порт другого пользователя: "))
+    #peer_port = 333
     
     peer_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     peer_socket.connect((peer_ip, peer_port))
@@ -66,20 +66,20 @@ def listen_for_peers(local_port):
 
 if __name__ == "__main__":
     # Регистрация пользователя
-    #username = input("Введите ваше имя: ")
-    username = "Vania"
+    username = input("Введите ваше имя: ")
+    #username = "Vania"
 
     print("Выберите цвет:")
     for num, color in COLORS.items():
         print(f"{num}: {color}Пример текста")
     
-    #color_choice = input("Введите номер выбранного цвета: ")
-    color_choice = "2"
+    color_choice = input("Введите номер выбранного цвета: ")
+    #color_choice = "2"
     color = COLORS.get(color_choice, Fore.WHITE)  # Если неверный выбор, ставим белый цвет по умолчанию
     
     # Определяем роль
-    #role = input("Вы хотите подключиться к другому пользователю или ждать подключения? (connect/listen): ")
-    role = "connect"
+    role = input("Вы хотите подключиться к другому пользователю или ждать подключения? (connect/listen): ")
+    #role = "connect"
 
     if role == 'listen':
         # Ввод порта для прослушивания

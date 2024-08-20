@@ -74,24 +74,25 @@ def listen_for_peers(local_port):
 
 if __name__ == "__main__":
     # Регистрация пользователя
-    #username = input("Введите ваше имя: ")
-    username = "Dima"
+    username = input("Введите ваше имя: ")
+    #username = "Dima"
+
     print("Выберите цвет:")
     for num, color in COLORS.items():
         print(f"{num}: {color}Пример текста")
     
-    #color_choice = input("Введите номер выбранного цвета: ")
-    color_choice = "1"
+    color_choice = input("Введите номер выбранного цвета: ")
+    #color_choice = "1"
     color = COLORS.get(color_choice, Fore.WHITE)  # Если неверный выбор, ставим белый цвет по умолчанию
     
     # Определяем роль
-    #role = input("Вы хотите подключиться к другому пользователю или ждать подключения? (connect/listen): ")
-    role = 'listen'
+    role = input("Вы хотите подключиться к другому пользователю или ждать подключения? (connect/listen): ")
+    #role = 'listen'
     
     if role == 'listen':
         # Ввод порта для прослушивания
-        #local_port = int(input("Введите порт для прослушивания: "))
-        local_port = 333
+        local_port = int(input("Введите порт для прослушивания: "))
+        #local_port = 333
         # Ждем подключения другого пользователя
         connection_socket = listen_for_peers(local_port)
     else:
